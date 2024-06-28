@@ -98,7 +98,7 @@ public partial class Player : MonoBehaviour
     void UpdateInput()
     {
         // 检查是否按住了空格键
-        if (Input.GetKey(KeyCode.Space))
+        if (IsInputValid())
         {
             DataCenter.Instance.AddPressValue(pressSpeed * Time.deltaTime);
         }
@@ -106,6 +106,35 @@ public partial class Player : MonoBehaviour
         {
             DataCenter.Instance.AddPressValue(-pressSpeed * Time.deltaTime);
         }
+    }
+
+    private bool IsInputValid()
+    {
+#if UNITY_EDITOR
+        return Input.GetKey(KeyCode.Space);
+#else
+        return IsDeviceInputValid();
+#endif
+    }
+
+    private bool IsDeviceInputValid()
+    {
+        if (Input.touchCount <= 0)
+        {
+            return false;
+        }
+
+        foreach (var touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            {
+                if (touch.position.x <= Screen.width / 2f)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     void Die()

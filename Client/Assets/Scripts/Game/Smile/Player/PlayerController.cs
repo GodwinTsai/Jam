@@ -115,7 +115,7 @@ public partial class Player : MonoBehaviour
         switch (_jumpState)
         {
             case JumpState.Grounded:
-                if (Input.GetButtonDown("Jump"))
+                if (CheckJump())
                 {
                     GameFlowController.Instance.audioMgr.PlayJump();
                     _velocity.y = jumpForce;
@@ -124,7 +124,7 @@ public partial class Player : MonoBehaviour
 
                 break;
             case JumpState.Jump1:
-                if (Input.GetButtonDown("Jump"))
+                if (CheckJump())
                 {
                     GameFlowController.Instance.audioMgr.PlayJump();
                     _velocity.y = jumpForce;
@@ -186,5 +186,34 @@ public partial class Player : MonoBehaviour
         {
             Debug.DrawLine(vertices[i], vertices[i] + direction * distance, Color.green);
         }
+    }
+    
+    private bool CheckJump()
+    {
+#if UNITY_EDITOR
+        return Input.GetButtonDown("Jump");
+#else
+        return CheckDeviceJump();
+#endif
+    }
+    
+    private bool CheckDeviceJump()
+    {
+        if (Input.touchCount <= 0)
+        {
+            return false;
+        }
+
+        foreach (var touch in Input.touches)
+        {
+            if (touch.phase == TouchPhase.Began)
+            {
+                if (touch.position.x > Screen.width / 2f)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
