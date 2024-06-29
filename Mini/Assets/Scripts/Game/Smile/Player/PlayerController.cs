@@ -91,7 +91,7 @@ public partial class Player : MonoBehaviour
 
         if (bottomHit.collider != null)
         {
-            _jumpState = JumpState.Grounded;
+            UpdateJumpState(JumpState.Grounded);
             _velocity.y = 0;
             transform.position = new Vector3(transform.position.x, bottomHit.point.y, transform.position.z);
             if (_stayPlat == null)
@@ -119,7 +119,7 @@ public partial class Player : MonoBehaviour
                 {
                     GameFlowController.Instance.audioMgr.PlayJump();
                     _velocity.y = jumpForce;
-                    _jumpState = JumpState.Jump1;
+                    UpdateJumpState(JumpState.Jump1);
                 }
 
                 break;
@@ -128,7 +128,7 @@ public partial class Player : MonoBehaviour
                 {
                     GameFlowController.Instance.audioMgr.PlayJump();
                     _velocity.y = jumpForce;
-                    _jumpState = JumpState.Jump2;
+                    UpdateJumpState(JumpState.Jump2);
                 }
 
                 break;
@@ -186,6 +186,15 @@ public partial class Player : MonoBehaviour
         {
             Debug.DrawLine(vertices[i], vertices[i] + direction * distance, Color.green);
         }
+    }
+
+    private void UpdateJumpState(JumpState newState)
+    {
+        if (_jumpState == newState)
+        {
+            return;
+        }
+        _jumpState = newState;
     }
     
     private bool CheckJump()
