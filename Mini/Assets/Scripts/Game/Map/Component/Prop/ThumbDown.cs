@@ -12,9 +12,9 @@ public class ThumbDown : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameFlowController.Instance.audioMgr.PlayEatBadZan();
-			EffectMgr.Instance.PlayEatBadEffect(transform.position);
-			ThumbUpMgr.Instance.AddThumbDown(15);
+			GameFlowController.Ins.audioMgr.PlayEatBadZan();
+			EffectMgr.Ins.PlayEatBadEffect(transform.position);
+			ThumbUpMgr.Ins.AddThumbDown(15);
 			Destroy(gameObject);
 		}
 	}

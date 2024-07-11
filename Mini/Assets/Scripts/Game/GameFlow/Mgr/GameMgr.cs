@@ -6,7 +6,7 @@
 // ==================================================
 using UnityEngine.SceneManagement;
 
-public class GameMgr : SingletonMonobehaviourAuto<GameMgr>
+public class GameMgr : SingletonMono<GameMgr>
 {
 	#region Mono Fields
 

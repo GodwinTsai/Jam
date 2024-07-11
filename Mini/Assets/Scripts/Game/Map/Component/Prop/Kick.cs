@@ -12,10 +12,10 @@ public class Kick : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameFlowController.Instance.audioMgr.PlayEatZan();
-			EffectMgr.Instance.PlayEatEffect(transform.position);
-			EffectMgr.Instance.PlayKickBrokenEffect(transform.position);
-			ThumbUpMgr.Instance.AddThumbUp(5);
+			GameFlowController.Ins.audioMgr.PlayEatZan();
+			EffectMgr.Ins.PlayEatEffect(transform.position);
+			EffectMgr.Ins.PlayKickBrokenEffect(transform.position);
+			ThumbUpMgr.Ins.AddThumbUp(5);
 			Destroy(gameObject);
 		}
 	}

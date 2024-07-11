@@ -12,9 +12,9 @@ public class AddLove : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameFlowController.Instance.audioMgr.PlayEatZan();
-			EffectMgr.Instance.PlayEatEffect(transform.position);
-			ThumbUpMgr.Instance.AddLove(3);
+			GameFlowController.Ins.audioMgr.PlayEatZan();
+			EffectMgr.Ins.PlayEatEffect(transform.position);
+			ThumbUpMgr.Ins.AddLove(3);
 			Destroy(gameObject);
 		}
 	}

@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveDistance = DataCenter.Instance.mapMoveSpeed * Time.deltaTime;
+        float moveDistance = DataCenter.Ins.mapMoveSpeed * Time.deltaTime;
         // 持续向左移动
         transform.Translate(Vector3.left * moveDistance);
 

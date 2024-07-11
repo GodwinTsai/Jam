@@ -16,15 +16,15 @@ public class GameFlowMenu : GameFlowUIBase
     /// </summary>
     public void OnStartBtnClick()
     {
-        GameFlowController.Instance.PlayStory(StoryType.BeginStory);
-        // GameFlowController.Instance.PlayStory(StoryType.StoryWinLevel1);
-        GameFlowController.Instance.audioMgr.PlayClickButton();
+        GameFlowController.Ins.PlayStory(StoryType.BeginStory);
+        // GameFlowController.Ins.PlayStory(StoryType.StoryWinLevel1);
+        GameFlowController.Ins.audioMgr.PlayClickButton();
     }
 
     public void OnExitBtnClick()
     {
-        GameFlowController.Instance.audioMgr.PlayClickButton();
-        GameFlowController.Instance.QuitGame();
+        GameFlowController.Ins.audioMgr.PlayClickButton();
+        GameFlowController.Ins.QuitGame();
     }
 
     /// <summary>
@@ -33,9 +33,9 @@ public class GameFlowMenu : GameFlowUIBase
     public void ClickHtpBtn()
     {
         HTP.SetActive(false);
-        LevelMgr.Instance.ResetLevel();
-        GameFlowController.Instance.audioMgr.PlayClickButton();
-        GameFlowController.Instance.EnterNextLevel();
+        LevelMgr.Ins.ResetLevel();
+        GameFlowController.Ins.audioMgr.PlayClickButton();
+        GameFlowController.Ins.EnterNextLevel();
     }
     
     public void ShowHTP()

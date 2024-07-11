@@ -20,7 +20,7 @@ public class GameFlow : MonoBehaviour
         this.AllFlows.Add(this.Stroy);
         this.AllFlows.Add(this.Menu);
         this.AllFlows.Add(this.PlayUI);
-        // LoadLevel(DataCenter.Instance.GetLevelData(Level.Level1));
+        // LoadLevel(DataCenter.Ins.GetLevelData(Level.Level1));
     }
 
     // Update is called once per frame

@@ -12,9 +12,9 @@ public class MinusLove : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameFlowController.Instance.audioMgr.PlayEatBadZan();
-			EffectMgr.Instance.PlayEatBadEffect(transform.position);
-			DataCenter.Instance.MinusLove();
+			GameFlowController.Ins.audioMgr.PlayEatBadZan();
+			EffectMgr.Ins.PlayEatBadEffect(transform.position);
+			DataCenter.Ins.MinusLove();
 			Destroy(gameObject);
 		}
 	}

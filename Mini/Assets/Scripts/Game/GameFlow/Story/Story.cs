@@ -89,27 +89,27 @@ public class Story : MonoBehaviour
 
         if (storyType == StoryType.StoryWinLevel3)
         {
-            GameFlowController.Instance.EnterFlow(GameFlowEnum.GameFlowMenu);
+            GameFlowController.Ins.EnterFlow(GameFlowEnum.GameFlowMenu);
         }
         else
         {
             switch (storyType)
             {
                 case StoryType.BeginStory:
-                    GameFlowController.Instance.ShowHTP();
+                    GameFlowController.Ins.ShowHTP();
                     break;
                 case StoryType.StoryWinLevel1:
                 case StoryType.StoryWinLevel2:
-                    GameFlowController.Instance.EnterNextLevel();
+                    GameFlowController.Ins.EnterNextLevel();
                     break;
                 case StoryType.StoryWinLevel3:
-                    GameFlowController.Instance.EnterFlow(GameFlowEnum.GameFlowMenu);
-                    GameFlowController.Instance.audioMgr.StopBgm();
+                    GameFlowController.Ins.EnterFlow(GameFlowEnum.GameFlowMenu);
+                    GameFlowController.Ins.audioMgr.StopBgm();
                     break;
                 case StoryType.StoryLoseLevel1:
                 case StoryType.StoryLoseLevel2:
                 case StoryType.StoryLoseLevel3:
-                    GameFlowController.Instance.RetryCurLevel();
+                    GameFlowController.Ins.RetryCurLevel();
                     break;
             }
         }

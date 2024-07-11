@@ -42,10 +42,10 @@ public partial class Player : MonoBehaviour
     void Start()
     {
         isDie = false;
-        pressSpeed = DataCenter.Instance.configData.pressSpeed;
-        hurtInterval = DataCenter.Instance.configData.hurtInterval;
+        pressSpeed = DataCenter.Ins.configData.pressSpeed;
+        hurtInterval = DataCenter.Ins.configData.hurtInterval;
         this.ControllerStart();
-        // transform.position = new Vector3(DataCenter.Instance.SpawnX, DataCenter.Instance.GroundHeight);
+        // transform.position = new Vector3(DataCenter.Ins.SpawnX, DataCenter.Ins.GroundHeight);
     }
 
     // Update is called once per frame
@@ -61,10 +61,10 @@ public partial class Player : MonoBehaviour
         }
         else
         {
-            DataCenter.Instance.durationTime += Time.deltaTime;
+            DataCenter.Ins.durationTime += Time.deltaTime;
             UpdateInput();
             // UpdateJump();
-            bool isSmile = DataCenter.Instance.IsSmile;
+            bool isSmile = DataCenter.Ins.IsSmile;
             die.SetActive(false);
             switch (_jumpState)
             {
@@ -87,7 +87,7 @@ public partial class Player : MonoBehaviour
                 if (hurtTimer > hurtInterval)
                 {
                     hurtTimer = 0;
-                    ThumbUpMgr.Instance.AddThumbDown(5);
+                    ThumbUpMgr.Ins.AddThumbDown(5);
                 }
             }
         }
@@ -100,11 +100,11 @@ public partial class Player : MonoBehaviour
         // 检查是否按住了空格键
         if (IsInputValid())
         {
-            DataCenter.Instance.AddPressValue(pressSpeed * Time.deltaTime);
+            DataCenter.Ins.AddPressValue(pressSpeed * Time.deltaTime);
         }
         else
         {
-            DataCenter.Instance.AddPressValue(-pressSpeed * Time.deltaTime);
+            DataCenter.Ins.AddPressValue(-pressSpeed * Time.deltaTime);
         }
     }
 
@@ -164,7 +164,7 @@ public partial class Player : MonoBehaviour
             if (playerRect.Overlaps(monsterRect))
             {
                 Debug.Log("碰撞");
-                DataCenter.Instance.Hurt(10);
+                DataCenter.Ins.Hurt(10);
                 monster.hurted = true;
                 break;
             }

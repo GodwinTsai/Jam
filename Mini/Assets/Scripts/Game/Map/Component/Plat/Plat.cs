@@ -66,6 +66,6 @@ public class Plat : MonoBehaviour
 
     protected virtual void OnTriggerAction()
     {
-        DataCenter.Instance.AddThumbUp();
+        DataCenter.Ins.AddThumbUp();
     }
 }

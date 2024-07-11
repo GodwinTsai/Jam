@@ -8,7 +8,7 @@ public class BadPlat : Plat
 {
 	protected override void OnTriggerAction()
 	{
-		GameFlowController.Instance.audioMgr.PlayEatBadZan();
-		ThumbUpMgr.Instance.AddThumbDown(20);
+		GameFlowController.Ins.audioMgr.PlayEatBadZan();
+		ThumbUpMgr.Ins.AddThumbDown(20);
 	}
 }

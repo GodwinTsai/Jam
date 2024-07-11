@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataCenter : SingletonClassAuto<DataCenter>
+public class DataCenter : SingletonClass<DataCenter>
 {
     public float SpawnX = 3;
     public float GroundHeight = 1.5f;
@@ -24,7 +24,7 @@ public class DataCenter : SingletonClassAuto<DataCenter>
 
     #endregion
 
-    public override void Init()
+    protected override void OnInit()
     {
         base.Init();
         GameObject config = GameObject.Find("GameConfigData");

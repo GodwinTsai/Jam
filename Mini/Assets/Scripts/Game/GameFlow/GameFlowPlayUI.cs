@@ -50,28 +50,28 @@ public class GameFlowPlayUI : GameFlowUIBase
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "成绩:" + (int) DataCenter.Instance.durationTime + "秒";
-        TimeText.text = ((int) DataCenter.Instance.durationTime).ToString();
-        HPSlider.value = DataCenter.Instance.HP * 1.0f / DataCenter.Instance.MaxHP;
-        HPValue.text = DataCenter.Instance.HP + "/" + DataCenter.Instance.MaxHP;
+        ScoreText.text = "成绩:" + (int) DataCenter.Ins.durationTime + "秒";
+        TimeText.text = ((int) DataCenter.Ins.durationTime).ToString();
+        HPSlider.value = DataCenter.Ins.HP * 1.0f / DataCenter.Ins.MaxHP;
+        HPValue.text = DataCenter.Ins.HP + "/" + DataCenter.Ins.MaxHP;
 
-        PressSlider.value = DataCenter.Instance.PressSlderValue;
+        PressSlider.value = DataCenter.Ins.PressSlderValue;
         RectTransform pressSliderRt = PressSlider.GetComponent<RectTransform>();
-        ValidArea.anchoredPosition = Vector3.right * pressSliderRt.sizeDelta.x * DataCenter.Instance.ValidAreaValue;
+        ValidArea.anchoredPosition = Vector3.right * pressSliderRt.sizeDelta.x * DataCenter.Ins.ValidAreaValue;
         // 获取当前的 sizeDelta
         Vector2 sizeDelta = ValidArea.sizeDelta;
         // 修改宽度
-        sizeDelta.x = pressSliderRt.sizeDelta.x * DataCenter.Instance.ValidAreaRange;
+        sizeDelta.x = pressSliderRt.sizeDelta.x * DataCenter.Ins.ValidAreaRange;
         // 应用新的 sizeDelta
         ValidArea.sizeDelta = sizeDelta;
 
-        thumbText.text = DataCenter.Instance.thumbUp.ToString();
+        thumbText.text = DataCenter.Ins.thumbUp.ToString();
         UpdateSmile();
     }
 
     private void UpdateSmile()
     {
-        var isSmile = DataCenter.Instance.IsSmile;
+        var isSmile = DataCenter.Ins.IsSmile;
         smile.SetActive(isSmile);
         cry.SetActive(!isSmile);
         boderEffect.SetActive(!isSmile);
@@ -113,12 +113,12 @@ public class GameFlowPlayUI : GameFlowUIBase
     public void Win()
     {
         this.SetStatus(Status.Win);
-        // GameFlowController.Instance.WinCurrentLevel();
+        // GameFlowController.Ins.WinCurrentLevel();
     }
 
     public void Lose()
     {
-        GameFlowController.Instance.audioMgr.PlayFail();
+        GameFlowController.Ins.audioMgr.PlayFail();
         this.SetStatus(Status.Lose);
         if (gameObject.activeSelf)
         {
@@ -133,36 +133,36 @@ public class GameFlowPlayUI : GameFlowUIBase
     IEnumerator DelayedEndLevel()
     {
         yield return new WaitForSecondsRealtime(1); // 延时2秒
-        GameFlowController.Instance.LoseCurrentLevel();
+        GameFlowController.Ins.LoseCurrentLevel();
     }
 
     public void OnPauseBtnClick()
     {
-        GameFlowController.Instance.audioMgr.PlayClickButton();
+        GameFlowController.Ins.audioMgr.PlayClickButton();
         this.SetStatus(Status.Pause);
     }
 
     public void OnGoOnBtnClick()
     {
-        GameFlowController.Instance.audioMgr.PlayClickButton();
+        GameFlowController.Ins.audioMgr.PlayClickButton();
         this.SetStatus(Status.Play);
     }
 
     public void OnMenuBtnClick()
     {
-        GameFlowController.Instance.audioMgr.PlayClickButton();
-        GameFlowController.Instance.EnterFlow(GameFlowEnum.GameFlowMenu);
+        GameFlowController.Ins.audioMgr.PlayClickButton();
+        GameFlowController.Ins.EnterFlow(GameFlowEnum.GameFlowMenu);
     }
 
     public void OnQuitBtnClick()
     {
-        GameFlowController.Instance.audioMgr.PlayClickButton();
-        GameFlowController.Instance.QuitGame();
+        GameFlowController.Ins.audioMgr.PlayClickButton();
+        GameFlowController.Ins.QuitGame();
     }
 
     public void OnRetryBtnClick()
     {
-        GameFlowController.Instance.audioMgr.PlayClickButton();
-        GameFlowController.Instance.RetryCurLevel();
+        GameFlowController.Ins.audioMgr.PlayClickButton();
+        GameFlowController.Ins.RetryCurLevel();
     }
 }

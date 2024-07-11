@@ -73,14 +73,14 @@ public class MapComponent : MonoBehaviour
 		}
 		else
 		{
-			playerObj = ResouceUtil.LoadPrefab("Smile/PlayerPrefab/Player");
+			playerObj = ResUtil.LoadPrefab("Smile/PlayerPrefab/Player");
 		}
 		
 		var player = playerObj.GetComponent<Player>();
 		player.transform.parent = Launch.Current.mapRoot.transform;
 		player.gameObject.SetActive(true);
 		player.transform.position = startPoint.transform.position;
-		GameMgr.Instance.player = player;
+		GameMgr.Ins.player = player;
 		EventManager.ExecuteEvent(EventConst.EventLevelStart, startPoint.transform.position);
 	}
 

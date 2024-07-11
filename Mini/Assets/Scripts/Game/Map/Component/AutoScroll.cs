@@ -30,7 +30,7 @@ public class AutoScroll : MonoBehaviour
 			return;
 		}
 
-		var player = GameMgr.Instance.player;
+		var player = GameMgr.Ins.player;
 		if (player == null)
 		{
 			return;

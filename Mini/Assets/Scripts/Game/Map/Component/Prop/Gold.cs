@@ -12,9 +12,9 @@ public class Gold : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameFlowController.Instance.audioMgr.PlayEatZan();
-			EffectMgr.Instance.PlayEatEffect(transform.position);
-			DataCenter.Instance.AddThumbUp();
+			GameFlowController.Ins.audioMgr.PlayEatZan();
+			EffectMgr.Ins.PlayEatEffect(transform.position);
+			DataCenter.Ins.AddThumbUp();
 			Destroy(gameObject);
 		}
 	}

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelMgr : SingletonClassAuto<LevelMgr>
+public class LevelMgr : SingletonClass<LevelMgr>
 {
 	#region Private Fields
 	public Scene curLevelScene;
@@ -20,7 +20,7 @@ public class LevelMgr : SingletonClassAuto<LevelMgr>
 
 	#region Public Properties
 
-	public override void Init()
+	protected override void OnInit()
 	{
 		base.Init();
 		if (_levelSceneDic == null)
@@ -67,7 +67,7 @@ public class LevelMgr : SingletonClassAuto<LevelMgr>
 			SceneManager.UnloadSceneAsync(curLevelScene);
 		}
 		
-		var player = GameMgr.Instance.player;
+		var player = GameMgr.Ins.player;
 		if (player != null)
 		{
 			GameObject.Destroy(player.gameObject);

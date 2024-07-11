@@ -18,8 +18,8 @@ public class Launch : MonoBehaviour
         ui.transform.localPosition = Vector3.zero;
         ui.transform.localRotation = Quaternion.identity;
         ui.transform.localScale = Vector3.one;
-        GameFlowController.Instance.Init(gf);
-        TablesHelper.Instance.InitConfig();
+        GameFlowController.Ins.Init(gf);
+        // TablesHelper.Ins.InitConfig();
 
         
     }
@@ -34,33 +34,33 @@ public class Launch : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyUp(KeyCode.A))
         {
-            DataCenter.Instance.AddThumbUp();
+            DataCenter.Ins.AddThumbUp();
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
-            DataCenter.Instance.AddLove();
+            DataCenter.Ins.AddLove();
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
-            DataCenter.Instance.MinusThumbUp();
+            DataCenter.Ins.MinusThumbUp();
         }
         else if (Input.GetKeyUp(KeyCode.D))
         {
-            DataCenter.Instance.MinusLove();
+            DataCenter.Ins.MinusLove();
         }
         if (Input.GetKeyUp(KeyCode.Q))
         {
-            LevelMgr.Instance.EnterNextLevel();
+            LevelMgr.Ins.EnterNextLevel();
         }
         else if (Input.GetKeyUp(KeyCode.W))
         {
-            LevelMgr.Instance.RetryCurLevel();
+            LevelMgr.Ins.RetryCurLevel();
         }
 #endif
         if (Input.GetMouseButtonUp(0))
         {
             var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            EffectMgr.Instance.PlayEffect(worldPos, "EatProp");
+            EffectMgr.Ins.PlayEffect(worldPos, "EatProp");
         }
     }
 }

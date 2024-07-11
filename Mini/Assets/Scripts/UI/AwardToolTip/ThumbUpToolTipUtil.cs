@@ -66,13 +66,13 @@ public class ThumbUpToolTipUtil
 
 	private static ThumbUpToolTipComponent NewThumbUpToolTipComponent()
 	{
-		var prefab = ResouceUtil.LoadPrefab(PREFAB_PATH);
+		var prefab = ResUtil.LoadPrefab(PREFAB_PATH);
 		if (prefab == null)
 		{
 			return null;
 		}
 
-		var parent = GameFlowController.Instance.GameFlow.tipsLayer.transform;
+		var parent = GameFlowController.Ins.GameFlow.tipsLayer.transform;
 		prefab.transform.SetParent(parent, false);
 		
 		var component = prefab.GetComponent<ThumbUpToolTipComponent>();

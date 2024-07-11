@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameFlowController : SingletonMonobehaviourAuto<GameFlowController>
+public class GameFlowController : SingletonMono<GameFlowController>
 {
     public AudioMgr audioMgr;
     public GameFlow GameFlow;
@@ -37,18 +37,18 @@ public class GameFlowController : SingletonMonobehaviourAuto<GameFlowController>
 
     public void EnterNextLevel()
     {
-        DataCenter.Instance.ResetData();
+        DataCenter.Ins.ResetData();
         EnterFlow(GameFlowEnum.GameFlowPlayUI);
-        LevelMgr.Instance.EnterNextLevel();
-        audioMgr.PlayLevelBgm(LevelMgr.Instance.curLevel);
+        LevelMgr.Ins.EnterNextLevel();
+        audioMgr.PlayLevelBgm(LevelMgr.Ins.curLevel);
     }
 
     public void RetryCurLevel()
     {
-        DataCenter.Instance.ResetData();
+        DataCenter.Ins.ResetData();
         EnterFlow(GameFlowEnum.GameFlowPlayUI);
-        LevelMgr.Instance.RetryCurLevel();
-        audioMgr.PlayLevelBgm(LevelMgr.Instance.curLevel);
+        LevelMgr.Ins.RetryCurLevel();
+        audioMgr.PlayLevelBgm(LevelMgr.Ins.curLevel);
     }
 
     public void PlayStory(StoryType type)
@@ -59,7 +59,7 @@ public class GameFlowController : SingletonMonobehaviourAuto<GameFlowController>
 
     public void WinCurrentLevel()
     {
-        switch (LevelMgr.Instance.curLevel)
+        switch (LevelMgr.Ins.curLevel)
         {
             case 1:
                 PlayStory(StoryType.StoryWinLevel1);
@@ -75,7 +75,7 @@ public class GameFlowController : SingletonMonobehaviourAuto<GameFlowController>
 
     public void LoseCurrentLevel()
     {
-        switch (LevelMgr.Instance.curLevel)
+        switch (LevelMgr.Ins.curLevel)
         {
             case 1:
                 PlayStory(StoryType.StoryLoseLevel1);
@@ -103,8 +103,5 @@ public class GameFlowController : SingletonMonobehaviourAuto<GameFlowController>
 #endif
     }
 
-    public override bool DestroyOnReboot()
-    {
-        return false;
-    }
+
 }

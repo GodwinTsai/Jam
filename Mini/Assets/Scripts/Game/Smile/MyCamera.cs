@@ -21,7 +21,7 @@ public class MyCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        var player = GameMgr.Instance.player;
+        var player = GameMgr.Ins.player;
         if (player == null)
         {
             return;

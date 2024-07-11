@@ -7,7 +7,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ThumbUpMgr : SingletonMonobehaviourAuto<ThumbUpMgr>
+public class ThumbUpMgr : SingletonMono<ThumbUpMgr>
 {
 	public void AddLove(int times)
 	{
@@ -18,7 +18,7 @@ public class ThumbUpMgr : SingletonMonobehaviourAuto<ThumbUpMgr>
 	{
 		for (int i = 0; i < times; i++)
 		{
-			DataCenter.Instance.AddLove();
+			DataCenter.Ins.AddLove();
 			var delay = UnityEngine.Random.Range(0, 0.1f);
 			yield return new WaitForSeconds(delay);
 		}
@@ -33,7 +33,7 @@ public class ThumbUpMgr : SingletonMonobehaviourAuto<ThumbUpMgr>
 	{
 		for (int i = 0; i < times; i++)
 		{
-			DataCenter.Instance.AddThumbUp();
+			DataCenter.Ins.AddThumbUp();
 			var delay = UnityEngine.Random.Range(0, 0.1f);
 			yield return new WaitForSeconds(delay);
 		}
@@ -48,7 +48,7 @@ public class ThumbUpMgr : SingletonMonobehaviourAuto<ThumbUpMgr>
 	{
 		for (int i = 0; i < times; i++)
 		{
-			DataCenter.Instance.MinusThumbUp();
+			DataCenter.Ins.MinusThumbUp();
 			var delay = UnityEngine.Random.Range(0, 0.1f);
 			yield return new WaitForSeconds(delay);
 		}

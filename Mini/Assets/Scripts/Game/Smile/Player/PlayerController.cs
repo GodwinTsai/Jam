@@ -44,9 +44,9 @@ public partial class Player : MonoBehaviour
     void ControllerStart()
     {
         // Time.fixedDeltaTime = 0.01f;
-        moveSpeed = DataCenter.Instance.configData.moveSpeed;
-        jumpForce = DataCenter.Instance.configData.jumpForce;
-        jumpSpeed = DataCenter.Instance.configData.jumpSpeed;
+        moveSpeed = DataCenter.Ins.configData.moveSpeed;
+        jumpForce = DataCenter.Ins.configData.jumpForce;
+        jumpSpeed = DataCenter.Ins.configData.jumpSpeed;
     }
 
     // Update is called once per frame
@@ -117,7 +117,7 @@ public partial class Player : MonoBehaviour
             case JumpState.Grounded:
                 if (CheckJump())
                 {
-                    GameFlowController.Instance.audioMgr.PlayJump();
+                    GameFlowController.Ins.audioMgr.PlayJump();
                     _velocity.y = jumpForce;
                     UpdateJumpState(JumpState.Jump1);
                 }
@@ -126,7 +126,7 @@ public partial class Player : MonoBehaviour
             case JumpState.Jump1:
                 if (CheckJump())
                 {
-                    GameFlowController.Instance.audioMgr.PlayJump();
+                    GameFlowController.Ins.audioMgr.PlayJump();
                     _velocity.y = jumpForce;
                     UpdateJumpState(JumpState.Jump2);
                 }

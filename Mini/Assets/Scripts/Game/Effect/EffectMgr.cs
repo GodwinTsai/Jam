@@ -6,11 +6,11 @@
 // ==================================================
 using UnityEngine;
 
-public class EffectMgr : SingletonClassAuto<EffectMgr>
+public class EffectMgr : SingletonClass<EffectMgr>
 {
 	public void PlayEffect(Vector3 position, string effectName)
 	{
-		GameObject effect = ResouceUtil.LoadPrefab("Effect/" + effectName);
+		GameObject effect = ResUtil.LoadPrefab("Effect/" + effectName);
 		if (effect == null)
 		{
 			return;
