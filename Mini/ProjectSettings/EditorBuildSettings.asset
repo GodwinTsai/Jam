@@ -6,24 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level0.unity
-    guid: 95683d6784c2d4eb1a5ae04e03a904fc
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 802bc4f5feaa6468c9b917bb15eadd1f
-  - enabled: 1
-    path: Assets/Scenes/Level2.unity
-    guid: 16e84efa3b44d40f2830d122b54c0464
-  - enabled: 1
-    path: Assets/Scenes/Level3.unity
-    guid: 36794bb96f3924def9682f73a7e9ff6b
-  - enabled: 1
-    path: Assets/Scenes/Level1555.unity
-    guid: 113c5f50d9ec5f3419b0317a4bd36cb1
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 1a0a177bb90990e49ae9a6a7aa418f68
-  m_configObjects: {}
+    path: Assets/Scenes/Bootstrap.scene
+    guid: 2cda990e2423bbf4892e6590ba056729
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: a0de39d3bd922e8458c7c8dd772a42a2, type: 2}
   m_SlimFeaturesWeixinMiniGame:
     AllocateOverhead: 1
     DecompressASTC: 0
